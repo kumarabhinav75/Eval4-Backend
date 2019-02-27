@@ -2,8 +2,9 @@
 
 const Hapi=require('hapi');
 const pingRoute = require('./routes/pingRoute.js');
-
-
+const forms = require('./routes/forms');
+const fillform = require('./routes/fillform');
+const getforms = require('./routes/getforms');
 
 // Create a server with a host and port
 const server=Hapi.server({
