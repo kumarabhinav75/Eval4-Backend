@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "migrationUp": "node_modules/.bin/sequelize db:migrate",
+    "migrationDown": "node_modules/.bin/sequelize db:migrate:undo:all",
+    "test": "NODE_ENV=test npm run migrationDown && NODE_ENV=test npm run migrationUp && jest"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +15,7 @@
     "axios": "^0.18.0",
     "eslint": "^5.12.1",
     "hapi": "^18.1.0",
+    "jest": "^24.1.0",
     "moment": "^2.24.0",
     "pg": "^7.8.1",
     "pg-hstore": "^2.3.2",
