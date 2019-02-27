@@ -1,5 +1,5 @@
 const Model = require('../models');
-
+const moment = require('moment');
 module.exports = [{
   method: 'POST',
   path: '/forms',
@@ -10,7 +10,9 @@ module.exports = [{
   //   },
   // },
   handler: (request, h) => {
-    Model.forms.generate(request.payload);
-    return request.payload;
+    const formObj = request.payload;
+    const currTime = moment().format(' hh:mm:ss');
+    formObj.createdAt = currTime;
+    return Model.forms.generate(formObj);
   }
 }];

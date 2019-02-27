@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
   forms.findOrCreate({ where: { formname: formObj.formname }, defaults: formObj })
       .spread((user, created) => {
         if (created === true) {
-          console.log(`Inserted book with id: ${formObj.formname}`);
+          console.log(`Inserted form with name: ${formObj.formname}`);
         } else {
-          console.log(`Book with id: ${formObj.formname} already exists`);
+          console.log(`form with name: ${formObj.formname} already exists`);
         }
       }).catch((errorObj) => {
         console.log(errorObj.message);
